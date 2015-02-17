@@ -37,7 +37,6 @@ class RockPaperScissors
 
 end
 
-=begin
 puts RockPaperScissors != nil
 puts RockPaperScissors.winner(['abc', 'P'], ['def', 'S']) == ['def', 'S']
 puts RockPaperScissors.winner(['abc', 'P'], ['def', 'R']) == ['abc', 'P']
@@ -62,4 +61,3 @@ puts RockPaperScissors.tournament_winner([
 ]) == ["Richard", "R"]
 
 puts RockPaperScissors.tournament_winner([['a', 'P'], ['b', 'R']]) == ['a', 'P']
-=end
