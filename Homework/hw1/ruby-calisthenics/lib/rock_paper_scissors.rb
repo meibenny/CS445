@@ -4,9 +4,7 @@ class RockPaperScissors
   class NoSuchStrategyError < StandardError ; end
 
   def self.winner(player1, player2)
-	begin 
-		raise NoSuchStrategyError,
-			"Strategy must be one of R,P,S" if /[^RPS]/.match(player1[1]) || /[^RPS]/.match(player2[1]) 
+	raise NoSuchStrategyError, "Strategy must be one of R,P,S" if /[^RPS]/.match(player1[1]) || /[^RPS]/.match(player2[1]) 
 	if player1[1] == 'P'
 		if player2[1] == 'S'
 			return player2
@@ -28,9 +26,6 @@ class RockPaperScissors
 			return player1
 		end
 	end
-	rescue NoSuchStrategyError => exception
-		"#{exception.message}"
-	end
   end
 
   def self.tournament_winner(tournament)
@@ -42,6 +37,7 @@ class RockPaperScissors
 
 end
 
+=begin
 puts RockPaperScissors != nil
 puts RockPaperScissors.winner(['abc', 'P'], ['def', 'S']) == ['def', 'S']
 puts RockPaperScissors.winner(['abc', 'P'], ['def', 'R']) == ['abc', 'P']
@@ -66,3 +62,4 @@ puts RockPaperScissors.tournament_winner([
 ]) == ["Richard", "R"]
 
 puts RockPaperScissors.tournament_winner([['a', 'P'], ['b', 'R']]) == ['a', 'P']
+=end
