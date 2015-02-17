@@ -23,9 +23,18 @@ class Example
   attr_accessor_with_history :foo
   attr_accessor_with_history :bar
 end
-a = Example.new; a.foo = 2; a.foo = "test"; 
-puts a.foo_history # => [nil, 2, "test"]
 
-a = Example.new
+#start tests
+a = Example.new 
+puts a != nil
 
-puts a.foo_history # => [nil]
+a = Example.new; a.foo = 2; a.foo = 3; a.foo = 4;
+puts a.foo_history == [nil, 2, 3,]
+
+a = Example.new; a.bar = "bar"; a.bar = 4; a.bar = "nil"; a.bar = 5;
+puts a.bar_history == [nil, "bar", 4, "nil"]
+puts a.foo_history == nil
+
+a = Example.new; a.foo = "nil";
+puts a.foo_history == [nil]
+puts a.bar_history == nil
