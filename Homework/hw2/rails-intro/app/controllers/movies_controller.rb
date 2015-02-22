@@ -1,5 +1,6 @@
 class MoviesController < ApplicationController
 
+  #sorts titles
   def sortAscendingTitle
     @movies = Movie.order("title ASC")
     render "index"
